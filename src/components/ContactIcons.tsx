@@ -1,6 +1,6 @@
-import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";
-import { HiLocationMarker } from "react-icons/hi";
+import { BsFillTelephoneFill, BsFillPersonFill } from "react-icons/bs/index";
+import { MdEmail } from "react-icons/md/index";
+import { HiLocationMarker } from "react-icons/hi/index";
 const ContactIconsComponent = function () {
   return (
     <>
