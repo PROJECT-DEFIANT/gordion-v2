@@ -32,7 +32,7 @@ const options: ISourceOptions = {
       consent: false,
       distance: 40,
       enable: true,
-      opacity: 0.4,
+      opacity: 0.5,
       width: 2,
     },
     move: {
@@ -57,7 +57,7 @@ const options: ISourceOptions = {
         area: 2000,
       },
       limit: 0,
-      value: 400,
+      value: 600,
     },
     opacity: {
       animation: {
