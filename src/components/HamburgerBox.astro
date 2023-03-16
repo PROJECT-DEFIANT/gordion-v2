@@ -1,0 +1,59 @@
+---
+---
+
+<button class="hamburger" id="hamburger__box">
+  <span class="hamburger__top hamburger__line"></span>
+  <span class="hamburger__middle hamburger__line"></span>
+  <span class="hamburger__bottom hamburger__line"></span>
+</button>
+<style>
+  .hamburger {
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    position: relative;
+    margin: 0;
+    border: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: transparent;
+    transition: opacity 350ms ease-in-out, transform 350ms ease-in-out,
+      background-color 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
+  }
+
+  .hamburger__top,
+  .hamburger__middle,
+  .hamburger__bottom {
+    width: 30px;
+    height: 2px;
+    transform: rotate(0);
+    transition: all 0.5s;
+    background: #e8f2f9;
+    transform: translateY(0) rotate(0);
+    transition: opacity 350ms ease-in-out, transform 350ms ease-in-out,
+      background-color 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
+  }
+  .hamburger.open {
+    transform: rotate(180deg);
+  }
+
+  .hamburger__top.open {
+    transform: translateY(9px) rotate(-45deg);
+    background-color: #070707;
+  }
+  .hamburger__bottom.open {
+    transform: translateY(-9px) rotate(45deg);
+    background-color: #000000;
+  }
+  .hamburger__middle.open {
+    opacity: 0;
+  }
+
+  @media screen and (width >= 768px) {
+    .hamburger {
+      display: none;
+    }
+  }
+</style>

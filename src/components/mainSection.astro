@@ -1,0 +1,213 @@
+---
+import LogoComponent from "./Logo.astro";
+---
+
+<script>
+  const elements = [
+    { status: "pending", tag: document.getElementsByClassName("pending")[0] },
+    { status: "ready", tag: document.getElementsByClassName("ready")[0] },
+    { status: "removed", tag: document.getElementsByClassName("removed")[0] },
+  ];
+
+  function exchangeClass(): void {
+    setInterval(flashText, 3000);
+  }
+
+  function flashText() {
+    for (const elem of elements) {
+      elem.tag.classList.toggle(elem.status);
+
+      if (elem.status == "pending") {
+        elem.status = "ready";
+        elem.tag.classList.toggle("ready");
+      } else if (elem.status == "ready") {
+        elem.status = "removed";
+        elem.tag.classList.toggle("removed");
+      } else if (elem.status == "removed") {
+        elem.status = "pending";
+        elem.tag.classList.toggle("pending");
+      }
+    }
+  }
+  exchangeClass();
+</script>
+<div id="tsparticles-1"></div>
+
+<section class="main-section">
+  <div class="main-section__content">
+    <div class="main-section__hero">
+      <div class="main-section__logo">
+        <LogoComponent
+          titleClass="main-section__logo--title"
+          nameClass="main-section__logo--name"
+          containerClass="main-section__logo--container"
+        />
+      </div>
+      <div class="main-section__remarks">
+        <h1 class="typewriter-2 text__title text__title-2">
+          /INSPIRED BY PATIENT DATA
+        </h1>
+        <h2 class="typewriter-3 text__title text__title-3">
+          /DELIVERED BY MACHINE LEARNING
+        </h2>
+      </div>
+    </div>
+
+    <div class="main-section__headings">
+      <h2 class="text__title text__title--animated pending">Cancer genomics</h2>
+      <h2 class="text__title text__title--animated ready">Bioinformatics</h2>
+      <h2 class="text__title text__title--animated removed">Data science</h2>
+    </div>
+  </div>
+</section>
+<style is:global>
+  .main-section__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 6rem 0;
+  }
+  .main-section__headings {
+    display: none;
+  }
+  .main-section__hero {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4rem;
+  }
+  .main-section__logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .main-section__logo--title {
+    font-size: 3rem;
+  }
+  .main-section__logo--name {
+    font-size: 1.2rem;
+  }
+
+  .main-section__remarks {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+  }
+  .text__title {
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+  .text__title-2 {
+    padding: 1rem 1rem 0 1rem;
+  }
+  .text__title-3 {
+    padding: 0 1rem 1rem 1rem;
+  }
+  @media screen and (width >= 425px) {
+    .main-section__logo--container {
+      padding: 2rem 1rem;
+    }
+    .main-section__hero {
+      width: 100%;
+      padding: 0 3rem;
+    }
+    .main-section__logo--title {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+    .main-section__logo--name {
+      font-size: 2rem;
+    }
+    .text__title {
+      font-size: 1.2rem;
+      font-weight: 200;
+      line-height: 1.5rem;
+      white-space: nowrap;
+    }
+  }
+  @media screen and (width >= 768px) {
+    .main-section__hero {
+      flex-direction: column;
+    }
+    .main-section__logo--title {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+    .main-section__logo--name {
+      font-size: 3rem;
+    }
+    .text__title {
+      font-size: 1.5rem;
+      line-height: 2rem;
+      padding-left: 3rem;
+    }
+  }
+  @media screen and (width >= 1024px) {
+    .main-section__headings {
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      padding-right: 5rem;
+      width: 60%;
+      transform-style: preserve-3d;
+      transform: translateZ(-40px);
+      position: relative;
+    }
+    .text__title--animated {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+  }
+  @media screen and (width >= 1440px) {
+    .main-section__logo--title {
+      font-size: 10rem;
+      line-height: 10rem;
+    }
+    .main-section__logo--name {
+      font-size: 4rem;
+    }
+    .text__title--animated {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+    .main-section__remarks {
+      padding-left: 6rem;
+    }
+  }
+
+  .ready,
+  .pending,
+  .removed {
+    align-items: center;
+    transition-duration: 650ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .ready {
+    transform: translateZ(40px) translateY(0px) rotateX(0);
+    filter: blur(0);
+    opacity: 1;
+    display: block;
+  }
+  .removed {
+    filter: blur(5px);
+    opacity: 0;
+    display: block;
+    transform: translateZ(0px) translateY(-50%) rotateX(90deg);
+  }
+  .pending {
+    filter: blur(5px);
+    opacity: 0;
+    display: block;
+    transform: translateZ(0px) translateY(-50%) rotateX(90deg);
+  }
+</style>

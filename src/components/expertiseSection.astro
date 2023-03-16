@@ -1,0 +1,90 @@
+---
+import Pz from "../images/PZ.png";
+import Ps from "../images/PS.png";
+import CardComponent from "./Card.astro";
+---
+
+<section class="expertise-section" id="expertise-section">
+  <div id="tsparticles-2"></div>
+
+  <div class="expertise-section__content">
+    <div class="expertise-section__text">
+      <h2 class="section__heading expertise-section__heading">
+        /Our expertise
+      </h2>
+      <p class="expertise-section__para typewriter-2">
+        Gordion Bioscience combines expert knowledge from cancer biology, data
+        science and machine learning systems to generate novel insights and
+        personalized view of the biomedical data.
+      </p>
+    </div>
+    <div class="expertise-section__cards">
+      <CardComponent
+        source={Pz}
+        title="Paweł Zawadzki, PhD"
+        description="University of Oxford"
+        expertise="Expert in Cancer Genomics and Machine Learning"
+      />
+      <CardComponent
+        source={Ps}
+        title="Paweł Sztromwasser, PhD"
+        description="University of Bergen"
+        expertise="Expert in Bioinformatics & Data Science"
+      />
+    </div>
+  </div>
+</section>
+<style is:global>
+  .expertise-section {
+    padding-top: 8rem;
+  }
+  .expertise-section__content {
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .expertise-section__cards {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .expertise-section__text {
+    padding: 2rem;
+  }
+  .expertise-section__para {
+    font-weight: 200;
+    padding: 1rem 0;
+  }
+  @media screen and (width>768px) {
+    .expertise-section__cards :nth-child(1).card__container {
+      flex-direction: row;
+    }
+
+    .expertise-section__cards :nth-child(2).card__container {
+      flex-direction: row-reverse;
+    }
+  }
+  @media screen and (width > 768px) {
+    .expertise-section__text {
+      padding: 4rem 6rem;
+      max-width: 768px;
+    }
+  }
+  @media screen and (width > 1440px) {
+    .expertise-section__content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+      padding-top: 4rem;
+    }
+    .expertise-section__para {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+  }
+</style>

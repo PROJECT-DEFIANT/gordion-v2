@@ -1,0 +1,39 @@
+---
+export interface Props {
+  titleClass: string;
+  nameClass: string;
+  containerClass: string;
+}
+const { titleClass = "", nameClass = "", containerClass = "" } = Astro.props;
+---
+
+<div>
+  <a class={`logo__text ${containerClass}`} href="/">
+    <span class={`logo__title ${titleClass}`}>GORDION</span>
+    <span class={`logo__name ${nameClass}`}>BIOSCIENCE</span>
+  </a>
+</div>
+<style>
+  .logo__text {
+    color: var(--font-color);
+    user-select: none;
+    display: flex;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    font-family: "Cantarel", sans-serif;
+  }
+  .logo__title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .logo__name {
+    font-size: 1rem;
+  }
+  @media screen and (width >= 425px) {
+    .logo__text {
+      padding: 2rem 3rem;
+    }
+  }
+</style>

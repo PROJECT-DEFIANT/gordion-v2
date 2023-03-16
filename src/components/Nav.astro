@@ -1,0 +1,147 @@
+---
+import LogoComponent from "./Logo.astro";
+import HamburgerBoxComponent from "./HamburgerBox.astro";
+const links = [
+  {
+    title: "/Who we are",
+    href: "#about-section",
+  },
+  {
+    title: "/Expertise",
+    href: "#expertise-section",
+  },
+  {
+    title: "/Contact",
+    href: "#contact-section",
+  },
+];
+---
+
+<script>
+  let hamburgerContainer = document.getElementById("hamburger__box");
+  let navLinksContainer = document.getElementById("nav-links");
+  let hamburgerLines = document.getElementsByClassName("hamburger__line");
+  let navLinks = document.getElementsByClassName("nav__link--dynamic");
+  const openSidebar = function () {
+    for (const line of hamburgerLines) {
+      line.classList.toggle("open");
+    }
+    hamburgerContainer?.classList.toggle("open");
+    navLinksContainer?.classList.toggle("open");
+  };
+  hamburgerContainer?.addEventListener("click", openSidebar);
+  for (const navLink of navLinks) {
+    navLink?.addEventListener("click", openSidebar);
+  }
+  addEventListener("resize", (event) => {
+    const target = event.target as Window;
+
+    if (target.screen.width > 776) {
+      hamburgerContainer?.classList.remove("open");
+      navLinksContainer?.classList.remove("open");
+      for (const line of hamburgerLines) {
+        line.classList.remove("open");
+      }
+    }
+  });
+</script>
+<nav>
+  <div class="nav__content">
+    <div class="logo__container">
+      <LogoComponent nameClass="" titleClass="" containerClass="" />
+    </div>
+    <div class="nav-links__container--static">
+      <div class="nav-links__content--static">
+        {
+          links.map((link) => (
+            <a
+              class="nav__link--static hover-underline-animation"
+              href={link.href}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </div>
+      <div class="nav-links__container--dynamic" id="nav-links">
+        <div class="nav-links__content--dynamic">
+          {
+            links.map((link) => (
+              <a class="nav__link--dynamic" href={link.href}>
+                {link.title}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <HamburgerBoxComponent />
+    </div>
+  </div>
+</nav>
+<style>
+  .nav__content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color-1);
+    z-index: 100;
+  }
+  .nav-links__content--static {
+    display: none;
+  }
+  .nav-links__container--static {
+    padding: 1rem;
+  }
+  nav {
+    height: 8rem;
+    background-color: #fff;
+  }
+
+  .nav-links__container--dynamic {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10rem;
+    height: 100%;
+    background-color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out, -webkit-transform 350ms ease-in-out;
+  }
+  .nav-links__container--dynamic.open {
+    transform: translateX(0);
+  }
+
+  .nav__link--dynamic {
+    color: var(--bg-color-1);
+  }
+  .nav__link--static {
+    color: var(--font-color);
+    margin: 0 2rem;
+  }
+  .nav-links__content--dynamic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 8rem 0;
+    padding: 1rem;
+    position: fixed;
+  }
+
+  @media screen and (width >= 768px) {
+    .nav-links__content--static {
+      display: flex;
+    }
+    .nav-links__container--dynamic {
+      display: none;
+    }
+  }
+</style>
