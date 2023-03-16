@@ -24,7 +24,7 @@ const options: ISourceOptions = {
   },
   particles: {
     color: {
-      value: "#0ff",
+      value: "#000",
     },
     links: {
       blink: false,
@@ -57,7 +57,7 @@ const options: ISourceOptions = {
         area: 2000,
       },
       limit: 0,
-      value: 600,
+      value: 400,
     },
     opacity: {
       animation: {
@@ -74,7 +74,7 @@ const options: ISourceOptions = {
     },
     size: {
       animation: {
-        enable: false,
+        enable: true,
         minimumValue: 0.1,
         speed: 40,
         sync: false,
