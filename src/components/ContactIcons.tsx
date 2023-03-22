@@ -17,7 +17,7 @@ const ContactIconsComponent = function () {
           </div>
           <div className="grid__card typewriter-4">
             <BsFillPersonFill />
-            <h4>Paweł Zawadzki, PhD, Founder, CEO</h4>
+            <h4>Pawel Zawadzki, PhD, Founder, CEO</h4>
           </div>
           <div className="grid__card typewriter-5">
             <HiLocationMarker />
