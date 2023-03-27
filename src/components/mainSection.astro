@@ -44,14 +44,13 @@ import LogoComponent from "./Logo.astro";
         />
       </div>
       <div class="main-section__remarks">
-        <h1 class="typewriter-1 text__title text__title-1">
-          /MOTIVATED BY FAILING TRIALS 
-        </h1>
-      <div class="main-section__remarks">
-        <h2 class="typewriter-2 text__title text__title-2">
+        <h3 class="typewriter-2 text__title text__title-1">
+          /MOTIVATED BY FAILING TRIALS
+        </h3>
+        <h3 class="typewriter-3 text__title text__title-2">
           /POWERED BY TUMOR DATA
-        </h2>
-        <h3 class="typewriter-3 text__title text__title-3">
+        </h3>
+        <h3 class="typewriter-4 text__title text__title-3">
           /DELIVERED BY MACHINE LEARNING
         </h3>
       </div>
@@ -108,11 +107,14 @@ import LogoComponent from "./Logo.astro";
     font-size: 0.8rem;
     text-align: left;
   }
+  .text__title-1 {
+    padding: 1rem 1rem 0 1rem;
+  }
   .text__title-2 {
     padding: 1rem 1rem 0 1rem;
   }
   .text__title-3 {
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
   }
   @media screen and (width >= 425px) {
     .main-section__logo--container {
