@@ -5,9 +5,9 @@ const ContactIconsComponent = function () {
   return (
     <>
       <div className="contact-section__text">
-        <h2 className="section__heading contact-section__heading">
+        <p className="section__heading contact-section__heading">
           {"/CONTACT US IF YOU WANT TO UNLOCK TRUE POTENTIAL OF YOUR DATA"}
-        </h2>
+        </p>
         <div className="contact-section__grid">
           <div className="grid__card typewriter-2">
             <BsFillTelephoneFill />
