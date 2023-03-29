@@ -6,7 +6,7 @@ const ContactIconsComponent = function () {
     <>
       <div className="contact-section__text">
         <p className="section__heading contact-section__heading">
-          {"/Contact us if You want to unlock true potential of Your data"}
+          {"/Contact us if you want to unlock true potential of your data"}
         </p>
         <div className="contact-section__grid">
           <div className="grid__card typewriter-2">
