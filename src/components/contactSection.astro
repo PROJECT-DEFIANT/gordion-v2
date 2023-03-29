@@ -12,18 +12,30 @@ import ContactIconsComponent from "./ContactIcons";
   .contact-section {
     /* background-color: blue; */
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   .contact-section__content {
     padding-top: 8rem;
-    height: 100%;
   }
   .contact-section__text {
     /* background-color: red; */
     display: flex;
     padding: 2rem;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
+  .contact-section__heading {
+    display: inline-block;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: normal;
+    font-weight: 200;
+    width: 80%;
+  }
   .contact-section__grid {
     display: flex;
     flex-direction: column;
@@ -47,13 +59,16 @@ import ContactIconsComponent from "./ContactIcons";
     font-size: 1.2rem;
     font-weight: 200;
   }
-  @media screen and (width>768px) {
+  @media screen and (width>1024px) {
     .contact-section__text {
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
       gap: 2rem;
       height: 100%;
+    }
+    .contact-section__heading {
+      width: 50%;
     }
   }
 </style>
